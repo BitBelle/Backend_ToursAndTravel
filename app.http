@@ -1,0 +1,142 @@
+#### Adding a Tour
+POST http://localhost:4000/tour
+# token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJlZmMxOTE3OC0xYTIzLTRjOWQtYTQyNS00Mjk4M2U1YjFhYzciLCJ1c2VyX05hbWUiOiJEb3VnbGFzIiwiaWF0IjoxNzE4MjcwNzU0LCJleHAiOjE3MTgyNzc5NTR9._JsSEoYUiX1kF3fSR9q8Z1UkI_oWyDQbq4DxjuGKU2c
+Content-Type: application/json
+
+{
+    "tour_Name": "Mombasa 3 Days Package",
+    "tour_Destination": "Mombasa",
+    "tour_Description": "A dose of the sea always feels good! If You're Looking For Relaxation, Beach Therapy Is The Perfect Solution!",
+    "tour_Price": 100000
+}
+
+#### Getting All Tours
+GET http://localhost:4000/tour
+
+
+#### Getting A tour
+GET http://localhost:4000/tour/1da7903e-a14d-4a06-bd32-e0a862653892
+
+
+#### Update a tour
+PATCH  http://localhost:4000/tour/288c3f42-c59c-47cb-b808-dec75e0318a0
+# token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJlZmMxOTE3OC0xYTIzLTRjOWQtYTQyNS00Mjk4M2U1YjFhYzciLCJ1c2VyX05hbWUiOiJEb3VnbGFzIiwiaWF0IjoxNzE4MjcwNzU0LCJleHAiOjE3MTgyNzc5NTR9._JsSEoYUiX1kF3fSR9q8Z1UkI_oWyDQbq4DxjuGKU2c
+Content-Type: application/json
+
+{
+    "tour_Name": "Maasai Mara Safari",
+    "tour_Destination": "Narok County",
+    "tour_Description": "Home to The Big Five, Mighty Masai Warriors And The Eight Wonder Of The World.",
+    "tour_Price": 100000
+}
+
+#### Deleting a Tour
+DELETE http://localhost:4000/tour/22871656-98f8-4f84-8f79-ea01ee042ab4
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJiYzg5NDA0OS0wODVmLTQyNWMtOGM5MC04YmM1ZGUzMTAzYmEiLCJ1c2VyX05hbWUiOiJKb25hdGhhbiIsImlhdCI6MTcxODY0ODc3MSwiZXhwIjoxNzE4Njc3NTcxfQ.xFgYpszcPyjequuV755eCJSjIzIu3PqQVScP-IjKh48
+
+
+
+#### Adding a Hotel
+POST http://localhost:4000/hotel
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJiYzg5NDA0OS0wODVmLTQyNWMtOGM5MC04YmM1ZGUzMTAzYmEiLCJ1c2VyX05hbWUiOiJKb25hdGhhbiIsImlhdCI6MTcxODY1MDc4NSwiZXhwIjoxNzE4Njc5NTg1fQ.2G-FK8PsNBpauwICSTpuGyk2Iji8kgCaZQpWCWX2vSE
+Content-Type: application/json
+
+{
+    "hotel_Name": "FairMont The Norfolk",
+    "hotel_Location": "Nairobi",
+    "hotel_Rating": "4 Star"
+}
+
+
+#### All Hotels
+GET http://localhost:4000/hotel
+
+
+
+#### Getting A Hotel
+GET http://localhost:4000/hotel/1344916d-008b-40fd-9f0b-3dcd3586b685
+
+
+
+#### Deleting a Hotel
+DELETE http://localhost:4000/hotel/1344916d-008b-40fd-9f0b-3dcd3586b685
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiI5YzlmNWNhYS03NDM5LTRmMjAtYjA5NC05YTEyZWY5YTdlMTMiLCJ1c2VyX05hbWUiOiJBZG1pbiIsImlhdCI6MTcxODYyNzMxNiwiZXhwIjoxNzE4NjU2MTE2fQ.jwI5ymXZpAHm6zzxwGbtcdrHIiyJUu1YNpgOTqEiQoI
+
+
+
+#### Update a Hotel
+PATCH  http://localhost:4000/hotel/edde589e-4b1f-4429-a76b-a70a4023f5bb
+# token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJlZmMxOTE3OC0xYTIzLTRjOWQtYTQyNS00Mjk4M2U1YjFhYzciLCJ1c2VyX05hbWUiOiJEb3VnbGFzIiwiaWF0IjoxNzE4MjcwNzU0LCJleHAiOjE3MTgyNzc5NTR9._JsSEoYUiX1kF3fSR9q8Z1UkI_oWyDQbq4DxjuGKU2c
+Content-Type: application/json
+
+{
+    "hotel_Name": "Maiyann Nanyuki",
+    "hotel_Location": "Nanyuki",
+    "hotel_Rating": "5 Star"
+}
+
+
+#### Role Assigning-isAdmin
+POST http://localhost:4000/assign-admin
+//token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiI5YzlmNWNhYS03NDM5LTRmMjAtYjA5NC05YTEyZWY5YTdlMTMiLCJ1c2VyX05hbWUiOiJBZG1pbiIsImlhdCI6MTcxODU1MTQyNiwiZXhwIjoxNzE4NTgwMjI2fQ.NGFoT-lLpcGJFXYZ5VwAzLjh19oLBSmm3dJkdx6wue0
+Content-Type: application/json
+
+{
+    "user_Id": "998df1e7-7a18-4cdf-92c2-16c2e42068db"
+}
+
+
+#### User Registration
+POST http://localhost:4000/auth/register
+Content-Type: application/json
+
+{
+    "user_Name": "Mercy W.",
+    "user_Email": "wainainamercy432@gmail.com",
+    "password_Hash": "Qwerty@123"
+
+}
+
+### UserLogin
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+    "user_Email": "jonathan.ndambuki@teach2give.com",
+    "password_Hash": "Qwerty@123"
+
+}
+
+
+#### All Users
+GET http://localhost:4000/auth/users
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiI5YzlmNWNhYS03NDM5LTRmMjAtYjA5NC05YTEyZWY5YTdlMTMiLCJ1c2VyX05hbWUiOiJBZG1pbiIsImlhdCI6MTcxODYyNzMxNiwiZXhwIjoxNzE4NjU2MTE2fQ.jwI5ymXZpAHm6zzxwGbtcdrHIiyJUu1YNpgOTqEiQoI
+
+
+
+
+#### Deleting a User
+DELETE http://localhost:4000/auth/cb2768eb-1671-4518-ad0d-5e6bd547635f
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiI5YzlmNWNhYS03NDM5LTRmMjAtYjA5NC05YTEyZWY5YTdlMTMiLCJ1c2VyX05hbWUiOiJBZG1pbiIsImlhdCI6MTcxODYyNzMxNiwiZXhwIjoxNzE4NjU2MTE2fQ.jwI5ymXZpAHm6zzxwGbtcdrHIiyJUu1YNpgOTqEiQoI
+
+
+
+#### Making a booking
+POST http://localhost:4000/booking
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiIwZjA2MTBiZS03M2ZjLTRhNjgtOGFlOS05MGNjYjZiYzViNDMiLCJ1c2VyX05hbWUiOiJSb3NlIFJvc2UiLCJpYXQiOjE3MTg2MzAzMzMsImV4cCI6MTcxODY1OTEzM30.-n2i-DgkcxS5km4dMOWXgdlEVBA_PKuMdCSbK9rbFi0
+Content-Type: application/json
+
+{
+    "user_Id": "825ad983-c6cb-4621-ae32-596e824b7a26",
+    "tour_Id": "3b5b144e-0b10-453a-bd62-6b90c8c7fcfd",
+    "hotel_Id": "c3f265cc-7193-49ed-8c7a-462b6e18f841",
+    "booking_Date": "2024-06-16"
+}
+
+
+#### Getting Bookings
+GET http://localhost:4000/booking
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiIwZjA2MTBiZS03M2ZjLTRhNjgtOGFlOS05MGNjYjZiYzViNDMiLCJ1c2VyX05hbWUiOiJSb3NlIFJvc2UiLCJpYXQiOjE3MTg2MzAzMzMsImV4cCI6MTcxODY1OTEzM30.-n2i-DgkcxS5km4dMOWXgdlEVBA_PKuMdCSbK9rbFi0
+
+####Get booking
+GET http://localhost:4000/booking
