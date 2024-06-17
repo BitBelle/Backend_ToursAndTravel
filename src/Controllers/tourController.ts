@@ -5,6 +5,7 @@ import { TourRequest, Tours } from '../Models/tourModel'
 import mssql from 'mssql'
 import { error } from 'console'
 import { DbHelper } from '../DatabaseHelpers'
+import { TourSchema } from '../inputValidation/tourValidation'
 
 const dbInstance = new DbHelper()
 
@@ -12,7 +13,13 @@ export const addTour = async(req:TourRequest, res:Response)=>{
     try{
         const id = uid()
         
-            console.log(req.body);
+        // console.log(req.body);
+
+        //input validation
+        const {error} =TourSchema.validate(req.body)
+        if (error){
+            return res.status(500).json("Tour Input Validation Failed!")
+        }
             
         const {tour_Name,tour_Destination,tour_Description, tour_Price} = req.body
 
@@ -64,6 +71,12 @@ export const updateTour = async (req: TourRequest, res: Response) => {
     try {
 
         const tour = (await dbInstance.exec('updateTour', {tour_Id:req.params.id})).recordset[0] as Tours
+
+        //input validation
+        const {error} =TourSchema.validate(req.body)
+        if (error){
+            return res.status(500).json("Tour Input Validation Failed!")
+        }
 
         if (tour && tour.tour_Id) {
             
