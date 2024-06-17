@@ -5,12 +5,19 @@ import { HotelRequest, Hotels } from '../Models/hotelModel'
 import mssql from 'mssql'
 import { error } from 'console'
 import { DbHelper } from '../DatabaseHelpers'
+import { HotelSchema } from '../inputValidation/hotelValidation'
 
 const dbInstance = new DbHelper()
 
 export const addHotel = async (req: HotelRequest, res: Response) => {
     try {
         const id = uid(); 
+
+        //input validation
+        const {error} = HotelSchema.validate(req.body)
+        if (error){
+            return res.status(500).json("Hotel Input Validation Failed!")
+        }
 
         const { hotel_Name, hotel_Location, hotel_Rating } = req.body;
         
@@ -59,6 +66,12 @@ export const updateHotel = async (req: HotelRequest, res: Response) => {
     try {
 
         const hotel = (await dbInstance.exec('updateHotel', {hotel_Id:req.params.id})).recordset[0] as Hotels
+
+        //input validation
+        const {error} = HotelSchema.validate(req.body)
+        if (error){
+            return res.status(500).json("Hotel Input Validation Failed!")
+        }
 
         const { hotel_Name, hotel_Location, hotel_Rating } = req.body;
 
