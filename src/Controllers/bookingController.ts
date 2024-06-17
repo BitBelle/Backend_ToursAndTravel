@@ -4,6 +4,7 @@ import { sqlConfig } from '../config';
 import mssql, { pool } from 'mssql';
 import { DbHelper } from '../DatabaseHelpers';
 import { Booking } from '../Models/bookingModel';
+import { BookingSchema } from '../inputValidation/bookingValidation';
 
 
 const dbInstance = new DbHelper()
@@ -13,6 +14,11 @@ export const addBooking = async (req: Request, res: Response) => {
     try {
         const id = uid(); 
 
+        //input validation
+        const {error} = BookingSchema.validate(req.body)
+        if (error){
+            return res.status(500).json("Booking Input Validation Failed!")
+        }
 
         const { user_Id, tour_Id, hotel_Id, booking_Date } = req.body;
 
