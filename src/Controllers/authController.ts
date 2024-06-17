@@ -11,6 +11,7 @@ import dotenv from 'dotenv'
 import { log } from 'console'
 import { ExtendedRequest1 } from '../middlewares'
 import { DbHelper } from '../DatabaseHelpers'
+import { UserSchema } from '../inputValidation/userValidation'
 
 dotenv.config({path:path.resolve(__dirname,"../../.env")})
 
@@ -52,6 +53,12 @@ export const loginUser = async(req: Request, res: Response) => {
     try {
         const { user_Name, user_Email, password_Hash } = req.body;
 
+        //input validation
+        const { error } = UserSchema.validate(req.body)
+        if (error) {
+            return res.status(500).json("User input validation failed! ")
+        }
+
         let user = await dbInstance.exec("getUser", {
             user_Name: user_Name, 
             user_Email: user_Email
@@ -76,30 +83,6 @@ export const loginUser = async(req: Request, res: Response) => {
         return res.status(500).json(error);
     }
 }
-
-
-
-// export const deleteUser = async (req: Request<{ id: string }>, res: Response) => {
-//     try {
-//         const user = (await dbInstance.exec('getUser', {user_Id:req.params.id})).recordset[0] as User
-//             console.log(user);
-            
-//         if (user && user.user_Id) {
-            
-//             await dbInstance.exec('getUser',{user_Id:req.params.id})
-
-//             return res.status(200).json({ message: "User Deleted" })
-//         }
-
-//       return  res.status(404).json({ message: "User not Found" });
-
-//     } catch (error) {
-
-//         console.log(error)
-//         return res.status(500).json(error);
-  
-//     }
-// };
 
 
 export const getUsers: RequestHandler = async (req, res) => {
